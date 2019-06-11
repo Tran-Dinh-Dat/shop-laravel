@@ -39,7 +39,7 @@
 			<div class="row">
 				<div id="logo" class="col-md-3 col-sm-12 col-xs-12">
 					<h1>
-						<a href="{{asset('/')}}"><img src="img/home/logo.png"></a>						
+						<a href="{{asset('/')}}"><img height="85px" src="img/home/logoroyal.png"></a>						
 						<nav><a id="pull" class="btn btn-danger" href="#">
 							<i class="fa fa-bars"></i>
 						</a></nav>			
@@ -47,7 +47,7 @@
 				</div>
 				<div id="search" class="col-md-7 col-sm-12 col-xs-12">
 					<form action="{{asset('search/')}}">
-						<input type="text" name="result" value="Nhập từ khóa ...">
+						<input type="text" name="result" placeholder="Nhập từ khóa ...">
 						<input type="submit" name="submit" value="Tìm Kiếm">
 						{{ csrf_field() }}
 					</form>
@@ -116,7 +116,7 @@
 			<div class="container">
 				<div class="row">				
 					<div id="logo-f" class="col-md-3 col-sm-12 col-xs-12 text-center">						
-						<a href="#"><img src="img/home/logo.png"></a>		
+						<a href="#"><img src="img/home/logoroyal.png"></a>		
 					</div>
 					<div id="about" class="col-md-3 col-sm-12 col-xs-12">
 						<h3>About us</h3>

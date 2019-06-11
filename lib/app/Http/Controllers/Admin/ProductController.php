@@ -41,7 +41,7 @@ class ProductController extends Controller
         $product->prod_featured = $req->featured;
         $product->save();
         $req->img->storeAs('avatar', $filename); // di chuyển tới thư mục avatar ( lib/storage/app/avatar)
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm sản phẩm thành công!');
     }
     public function getEditProduct($id) 
     {
@@ -69,7 +69,8 @@ class ProductController extends Controller
             $req->img->storeAs('avatar', $img); // di chuyển tới thư mục avatar ( lib/storage/app/avatar)
         }
         $product::where('prod_id', $id)->update($arr);
-        return redirect('admin/product');
+        //return redirect('admin/product');
+        return redirect()->back()->with('success','Sửa sản phẩm thành công!');
     }
     public function getDeleteProduct($id) 
     {

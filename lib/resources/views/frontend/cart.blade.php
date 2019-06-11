@@ -16,50 +16,7 @@
 </script>
 <div id="main" class="col-md-9">
 	<!-- main -->
-	<!-- phan slide la cac hieu ung chuyen dong su dung jquey -->
-	<div id="slider">
-		<div id="demo" class="carousel slide" data-ride="carousel">
-
-			<!-- Indicators -->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
-
-			<!-- The slideshow -->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="img/home/slide-1.png" alt="Los Angeles" >
-				</div>
-				<div class="carousel-item">
-					<img src="img/home/slide-2.png" alt="Chicago">
-				</div>
-				<div class="carousel-item">
-					<img src="img/home/slide-3.png" alt="New York" >
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-		</div>
-	</div>
-
-	<div id="banner-t" class="text-center">
-		<div class="row">
-			<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-				<a href="#"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
-			</div>
-			<div class="banner-t-item col-md-6 col-sm-12 col-xs-12">
-				<a href="#"><img src="img/home/banner-t-1.png" alt="" class="img-thumbnail"></a>
-			</div>
-		</div>					
-	</div>
+	
 
 	<div id="wrap-inner">
 		<div id="list-cart">
@@ -86,7 +43,7 @@
 							</td>
 							<td><span class="price">{{number_format($item->price,0,',','.')}} đ</span></td>
 							<td><span class="price">{{number_format($item->price * $item->qty,0,',','.')}} đ</span></td>
-							<td><a href="{{asset('cart/delete/'.$item->rowId)}}">Xóa</a></td>
+							<td><a onclick="return confirm('Bạn có chắc chắn muốn xóa không!')" href="{{asset('cart/delete/'.$item->rowId)}}">Xóa</a></td>
 						</tr>
 					@endforeach
 		
@@ -97,9 +54,9 @@
 																									
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<a href="#" class="my-btn btn">Mua tiếp</a>
+						<a href="{{asset('/')}}" class="my-btn btn">Mua tiếp</a>
 						<a href="#" class="my-btn btn">Cập nhật</a>
-						<a href="{{asset('cart/delete/all')}}" class="my-btn btn">Xóa giỏ hàng</a>
+						<a onclick="return confirm('Bạn có chắc chắn muốn xóa không!')" href="{{asset('cart/delete/all')}}" class="my-btn btn">Xóa giỏ hàng</a>
 					</div>
 				</div>
 			</form>             	                	

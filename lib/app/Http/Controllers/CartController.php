@@ -12,7 +12,7 @@ class CartController extends Controller
     {
         $product = Product::find($id);
         Cart::add(['id' => $id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'options' => ['img' => $product->prod_img]]);
-        return redirect('cart/show');
+        return redirect('cart/show')->with('success','Đã thêm sản phẩm vào giỏ hàng!');
     }
     public function getShowCart()
     {

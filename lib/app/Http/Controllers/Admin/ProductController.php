@@ -40,19 +40,40 @@ class ProductController extends Controller
         $product->prod_cate = $req->cate;
         $product->prod_featured = $req->featured;
         $product->save();
-        $req->img->storeAs('avatar', $filename);
+        $req->img->storeAs('avatar', $filename); // di chuyển tới thư mục avatar ( lib/storage/app/avatar)
         return redirect()->back();
     }
-    public function getEditProduct() 
+    public function getEditProduct($id) 
     {
-        return view('backend.editproduct');
+        $data['product'] = Product::find($id);
+        $data['catelist'] = Category::all();
+        return view('backend.editproduct', $data);
     }
-    public function postEditProduct() 
+    public function postEditProduct(Request $req, $id) 
     {
-        
+        $product = new Product;
+        $arr['prod_name'] = $req->name;
+        $arr['prod_slug'] = str_slug($req->slug);
+        $arr['prod_accessories'] = $req->accessories;
+        $arr['prod_price'] = $req->price;
+        $arr['prod_warranty'] = $req->warranty;
+        $arr['prod_promotion'] = $req->promotion;
+        $arr['prod_condition'] = $req->condition;
+        $arr['prod_status'] = $req->status;
+        $arr['prod_description'] = $req->description;
+        $arr['prod_cate'] = $req->cate;
+        $arr['prod_featured'] = $req->featured;
+        if ($req->hasFile('img')) {
+            $img = $req->img->getClientOriginalName(); // lấy tên ảnh
+            $arr['prod_img'] = $img;
+            $req->img->storeAs('avatar', $img); // di chuyển tới thư mục avatar ( lib/storage/app/avatar)
+        }
+        $product::where('prod_id', $id)->update($arr);
+        return redirect('admin/product');
     }
-    public function getDeleteProduct() 
+    public function getDeleteProduct($id) 
     {
-        
+        Product::destroy($id);    
+        return back();
     }
 }

@@ -13,7 +13,7 @@ class FrontendController extends Controller
     {
         $data['featured'] = Product::where('prod_featured', 1)->orderBy('prod_id','desc')->take(8)->get();
         $data['new'] = Product::orderBy('prod_id','desc')->take(8)->get();
-        return view('frontend.home', $data);
+        return view('frontend.home1', $data);
     }
     public function getDetail($id)
     {

@@ -59,6 +59,7 @@
 						<a onclick="return confirm('Bạn có chắc chắn muốn xóa không!')" href="{{asset('cart/delete/all')}}" class="my-btn btn">Xóa giỏ hàng</a>
 					</div>
 				</div>
+				{{ csrf_field() }}
 			</form>             	                	
 		</div>
 
